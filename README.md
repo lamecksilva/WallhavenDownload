@@ -1,2 +1,4 @@
-# WallhavenDownload
-Script for download and save wallpapers from wallhaven url
+### WallhavenDownload
+
+App/Script to download wallpapers from alpha.wallhaven.cc by url
+

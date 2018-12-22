@@ -1,0 +1,32 @@
+{
+  "name": "wallhavendownload",
+  "version": "1.0.0",
+  "description": "A project for download wallpapers from alpha.wallhaven.cc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamecksilva/WallhavenDownload.git"
+  },
+  "keywords": [
+    "wallhaven",
+    "download",
+    "wallpaper",
+    "scrape",
+    "node",
+    "javascript",
+    "js"
+  ],
+  "author": "lamecksilva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lamecksilva/WallhavenDownload/issues"
+  },
+  "homepage": "https://github.com/lamecksilva/WallhavenDownload#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0"
+  }
+}
