@@ -4,7 +4,7 @@
   "description": "A project for download wallpapers from alpha.wallhaven.cc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/lamecksilva/WallhavenDownload#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "minimist": "^1.2.0",
     "request": "^2.88.0"
   }
 }

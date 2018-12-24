@@ -2,7 +2,15 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const request = require("request");
 
-const url = "https://alpha.wallhaven.cc/wallpaper/396523";
+getUrl = () => {
+  var argv = require("minimist")(process.argv.slice(2));
+  if (argv.u !== null && argv.u !== undefined) {
+    console.dir(argv.u);
+    return argv.u;
+  }
+};
+
+const url = getUrl();
 
 request(url, (err, res, html) => {
   if (!err && res.statusCode == 200) {
