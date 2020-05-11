@@ -21,10 +21,12 @@ function downloadWallpaper(url) {
 
 			const wallpaperId = $('.scrollbox').children().attr('data-wallpaper-id');
 
+			fs.mkdirSync('downloads');
+
 			request
 				.get(src)
 				.on('error', (err) => console.log(err))
-				.pipe(fs.createWriteStream(`wallpaper-${wallpaperId}.png`))
+				.pipe(fs.createWriteStream(`downloads/wallpaper-${wallpaperId}.png`))
 				.on('close', () => {
 					console.log('Download done');
 				})
