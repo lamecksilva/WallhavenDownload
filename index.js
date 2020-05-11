@@ -96,32 +96,3 @@ request('https://wallhaven.cc/random', (err, res, html) => {
 		}
 	}
 });
-
-// fs.readdir('downloads', (err, files) => {
-// 	if (err) console.error(err);
-
-// 	console.log(files);
-
-// 	console.log(new Date());
-// 	console.log(new Date().getTime());
-// 	const newFileName = `${new Date().getTime()}-${files[0]}`;
-
-// 	console.log(newFileName);
-// 	console.log(newFileName.split('-')[0]);
-// 	const newFileNameDate = new Date(parseInt(newFileName.split('-')[0]));
-
-// 	console.log(newFileNameDate);
-
-// 	const oldDate = new Date(1589226980713);
-// 	console.log(oldDate);
-// 	console.log(newFileNameDate.getTime() > oldDate.getTime());
-// 	// 1589226980713
-
-// 	fs.unlink('downloads/wallpaper-4lplv2.png', (err) => {
-// 		if (err) {
-// 			console.error('Error while removing old file');
-// 			process.exit(1);
-// 		}
-// 		console.log('Old File Deleted');
-// 	});
-// });
