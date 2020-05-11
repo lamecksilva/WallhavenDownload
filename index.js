@@ -2,7 +2,9 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const request = require('request');
 const { exec } = require('child_process');
+const cron = require('node-cron');
 
+console.log('Wallhaven Download Started');
 // getUrl = () => {
 // 	var argv = require('minimist')(process.argv.slice(2));
 // 	if (argv.u !== null && argv.u !== undefined) {
@@ -77,22 +79,24 @@ function downloadWallpaper(url) {
 	});
 }
 
-// request(
-// 	'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc',
-// 	(err, res, html) => {
-request('https://wallhaven.cc/random', (err, res, html) => {
-	if (!err && res.statusCode === 200) {
-		const $ = cheerio.load(html);
+cron.schedule('*/1 * * * *', () =>
+	// request(
+	// 	'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc',
+	// 	(err, res, html) => {
+	request('https://wallhaven.cc/random', (err, res, html) => {
+		if (!err && res.statusCode === 200) {
+			const $ = cheerio.load(html);
 
-		const src = $('.thumb')?.toArray()[0]?.children[1]?.attribs?.href;
+			const src = $('.thumb')?.toArray()[0]?.children[1]?.attribs?.href;
 
-		console.log(src);
+			console.log(src);
 
-		if (src) {
-			downloadWallpaper(src);
-			removeOldFile();
-		} else {
-			console.error('WallPaper Random URL not found');
+			if (src) {
+				downloadWallpaper(src);
+				removeOldFile();
+			} else {
+				console.error('WallPaper Random URL not found');
+			}
 		}
-	}
-});
+	})
+);
