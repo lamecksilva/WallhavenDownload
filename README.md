@@ -1,6 +1,6 @@
 ### WallhavenDownload
 
-App/Script to download wallpapers from alpha.wallhaven.cc by url
+App/Script to download RANDOM wallpapers from wallhaven.cc
 
 #### Instalation
 
@@ -13,13 +13,19 @@ $ npm i
 #### Example
 
 ```sh
-$ node index -u https://alpha.wallhaven.cc/wallpaper/68086
-'https://alpha.wallhaven.cc/wallpaper/68086'
-wallpapers.wallhaven.cc/wallpapers/full/wallhaven-68086.jpg
+$ node index
+https://wallhaven.cc/w/838gyk
+Old File Deleted
+Starting Download
 Download done
 ```
 
-Check the WallhavenDownload folder and voilà :stuck_out_tongue_winking_eye:
+#### OBS:
+
+To run with cron in Arch Linux, i been trying but not successfull yet.
+
+Check the WallhavenDownload/downloads folder and voilà :stuck_out_tongue_winking_eye:
 
 Feel free to make pr's and contact me
+
 ##### Thanks

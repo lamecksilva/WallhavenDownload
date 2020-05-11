@@ -15,7 +15,7 @@ const { exec } = require('child_process');
 
 function setWallPaper(wallpaperFileName) {
 	exec(
-		`gsettings set org.cinnamon.desktop.background picture-uri "file:///home/lameco/Documents/WallhavenDownload/${wallpaperFileName}"`,
+		`/usr/bin/gsettings set org.cinnamon.desktop.background picture-uri "file:///home/lameco/Documents/WallhavenDownload/${wallpaperFileName}"`,
 		(err, stdout, stderr) => {
 			if (err) {
 				console.error(err);
@@ -26,7 +26,7 @@ function setWallPaper(wallpaperFileName) {
 				console.log(stderr);
 				process.exit(1);
 			}
-			// console.log(stdout);
+			console.log(stdout);
 		}
 	);
 }
