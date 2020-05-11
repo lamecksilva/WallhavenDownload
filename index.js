@@ -21,7 +21,7 @@ function downloadWallpaper(url) {
 
 			const wallpaperId = $('.scrollbox').children().attr('data-wallpaper-id');
 
-			fs.mkdirSync('downloads');
+			if (!fs.existsSync('downloads')) fs.mkdirSync('downloads');
 
 			request
 				.get(src)
