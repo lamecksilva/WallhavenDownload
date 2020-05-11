@@ -35,6 +35,9 @@ function downloadWallpaper(url) {
 	});
 }
 
+// request(
+// 	'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc',
+// 	(err, res, html) => {
 request('https://wallhaven.cc/random', (err, res, html) => {
 	if (!err && res.statusCode === 200) {
 		const $ = cheerio.load(html);
