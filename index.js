@@ -79,11 +79,20 @@ function downloadWallpaper(url) {
 	});
 }
 
+const randomWallpaperURL =
+	// Random (Really)
+	'https://wallhaven.cc/random';
+// Only anime pics
+// 'https://wallhaven.cc/search?categories=010&purity=100&sorting=random&order=desc&seed=GTud9&page=2';
+// Only anime NSFW pics
+// 'https://wallhaven.cc/search?categories=010&purity=010&sorting=random&order=desc';
+// Discover f ys
+// 'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc';
+// ALL, all tags, all all all
+// 'https://wallhaven.cc/search?categories=111&purity=110&sorting=random&order=desc&seed=M60tJ&page=2'
+
 cron.schedule('*/1 * * * *', () =>
-	// request(
-	// 	'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc',
-	// 	(err, res, html) => {
-	request('https://wallhaven.cc/random', (err, res, html) => {
+	request(randomWallpaperURL, (err, res, html) => {
 		if (!err && res.statusCode === 200) {
 			const $ = cheerio.load(html);
 
