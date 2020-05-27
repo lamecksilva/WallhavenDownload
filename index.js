@@ -64,8 +64,6 @@ function downloadWallpaper(url) {
 
 			const wallpaperFileName = `downloads/${new Date().getTime()}-${wallpaperId}.png`;
 
-			if (!fs.existsSync('downloads')) fs.mkdirSync('downloads');
-
 			request
 				.get(src)
 				.on('request', () => console.log('Starting Download'))
@@ -101,7 +99,10 @@ cron.schedule('*/1 * * * *', () =>
 			console.log(src);
 
 			if (src) {
+				!fs.existsSync('downloads') && fs.mkdirSync('downloads');
+
 				downloadWallpaper(src);
+
 				removeOldFile();
 			} else {
 				console.error('WallPaper Random URL not found');
