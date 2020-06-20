@@ -5,15 +5,6 @@ const { exec } = require('child_process');
 const cron = require('node-cron');
 
 console.log('Wallhaven Download Started');
-// getUrl = () => {
-// 	var argv = require('minimist')(process.argv.slice(2));
-// 	if (argv.u !== null && argv.u !== undefined) {
-// 		console.dir(argv.u);
-// 		return argv.u;
-// 	}
-// };
-
-// const url = getUrl();
 
 function setWallPaper(wallpaperFileName) {
 	exec(
@@ -55,7 +46,7 @@ function removeOldFile() {
 
 function downloadWallpaper(url) {
 	request(url, (err, res, html) => {
-		if (!err && res.statusCode == 200) {
+		if (!err && res.statusCode === 200) {
 			const $ = cheerio.load(html);
 
 			const src = $('.scrollbox').children().attr('data-cfsrc');
