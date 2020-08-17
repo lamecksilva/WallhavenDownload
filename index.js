@@ -8,7 +8,9 @@ console.log('Wallhaven Download Started');
 
 function setWallPaper(wallpaperFileName) {
 	exec(
-		`/usr/bin/gsettings set org.cinnamon.desktop.background picture-uri "file:///home/lameco/Documents/WallhavenDownload/${wallpaperFileName}"`,
+		`/usr/bin/gsettings set org.cinnamon.desktop.background picture-uri "file://${
+			process.env.PWD || '/home/lameco/Projects/WallhavenDownload'
+		}/${wallpaperFileName}"`,
 		(err, stdout, stderr) => {
 			if (err) {
 				console.error(err);
