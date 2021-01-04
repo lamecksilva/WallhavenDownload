@@ -7,6 +7,13 @@ const cron = require('node-cron');
 console.log('Wallhaven Download Started');
 
 function setWallPaper(wallpaperFileName) {
+	// console.log(`Setting ${wallpaperFileName} as wallpaper...`);
+	console.log(
+		`running: /usr/bin/gsettings set org.cinnamon.desktop.background picture-uri "file://${
+			process.env.PWD || '/home/lameco/Projects/WallhavenDownload'
+		}/${wallpaperFileName}"`
+	);
+
 	exec(
 		`/usr/bin/gsettings set org.cinnamon.desktop.background picture-uri "file://${
 			process.env.PWD || '/home/lameco/Projects/WallhavenDownload'
@@ -21,7 +28,9 @@ function setWallPaper(wallpaperFileName) {
 				console.log(stderr);
 				process.exit(1);
 			}
+
 			console.log(stdout);
+			console.log('Wallpaper Set');
 		}
 	);
 }
@@ -72,15 +81,17 @@ function downloadWallpaper(url) {
 
 const randomWallpaperURL =
 	// Random (Really)
-	'https://wallhaven.cc/random';
+	// 'https://wallhaven.cc/random';
+	// Random 2560x1080
+	'https://wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1080&sorting=random&order=desc'
 // Only anime pics
 // 'https://wallhaven.cc/search?categories=010&purity=100&sorting=random&order=desc&seed=GTud9&page=2';
 // Only anime NSFW pics
 // 'https://wallhaven.cc/search?categories=010&purity=010&sorting=random&order=desc';
 // Discover f ys
-// 'https://wallhaven.cc/search?categories=011&purity=010&sorting=random&order=desc';
+// 'https://wallhaven.cc/search?categories=011&purity=011&sorting=random&order=desc';
 // ALL, all tags, all all all
-// 'https://wallhaven.cc/search?categories=111&purity=110&sorting=random&order=desc&seed=M60tJ&page=2'
+// 'https://wallhaven.cc/search?categories=111&purity=111&sorting=random&order=desc&seed=M60tJ'
 
 cron.schedule('*/1 * * * *', () =>
 	request(randomWallpaperURL, (err, res, html) => {
