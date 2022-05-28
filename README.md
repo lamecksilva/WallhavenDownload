@@ -22,9 +22,22 @@ Download done
 
 #### OBS:
 
-To run with cron in Arch Linux, i been trying but not successfull yet.
+To run with cron in Arch Linux / Manjaro:
 
-Check the WallhavenDownload/downloads folder and voilà :stuck_out_tongue_winking_eye:
+```sh
+$ crontab -e
+```
+
+and in the editor, add:
+
+```sh
+*/1 * * * * cd /home/$USER/WallhavenDownload && /usr/bin/node index.js
+```
+
+> I Need put all my env variables in crontab file, and it works.  
+> I need test for discover the necessary variable :)
+
+Check the `WallhavenDownload/downloads` folder and voilà :stuck_out_tongue_winking_eye:
 
 Feel free to make pr's and contact me
 
