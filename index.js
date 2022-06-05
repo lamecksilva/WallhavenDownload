@@ -9,7 +9,15 @@ console.log('Wallhaven Download Started');
 let log = '';
 
 function writeLog() {
-	fs.writeFileSync(`logs/${new Date().getTime()}.log`, log, (err) => {
+	const date = new Date();
+
+	const logFileName = `${date.getDate()}-${
+		date.getMonth() + 1
+	}-${date.getFullYear()}.log`;
+
+	log += `----------------- ${date.getHours()}:${date.getMinutes()} ----------------- \n`
+
+	fs.appendFile(`logs/${logFileName}`, log, (err) => {
 		if (err) {
 			console.log(err);
 			process.exit(1);
@@ -107,9 +115,9 @@ function downloadWallpaper(url) {
 
 const randomWallpaperURL =
 	// Random (Really)
-	// 'https://wallhaven.cc/random';
-	// Random 2560x1080
-	'https://wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1080&sorting=random&order=desc';
+	'https://wallhaven.cc/random';
+// Random 2560x1080
+// 'https://wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1080&sorting=random&order=desc';
 // Only anime pics
 // 'https://wallhaven.cc/search?categories=010&purity=100&sorting=random&order=desc&seed=GTud9&page=2';
 // Only anime NSFW pics
